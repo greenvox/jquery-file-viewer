@@ -199,7 +199,7 @@
             id: 'default-viewer',
             class: 'default-viewer',
             render: function (file) {
-                return '<span id="' + this.id + '" class="' + this.class + '">File not Supported!!</span>';
+                return '<span id="' + this.id + '" class="' + this.class + '">This file format is currently not supported.</span>';
             }
         }
     }
