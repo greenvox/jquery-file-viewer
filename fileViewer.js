@@ -85,19 +85,19 @@
             const viewerName = defineViewerName(contentType, fileExtension);
 
             let viewer = _options.viewers[viewerName] || _defaults.viewers[viewerName];
+            if (options != undefined) {
+                if (options.viewers && options.viewers[viewerName]) {
 
-            if (options.viewers && options.viewers[viewerName]) {
+                    let defaultViewer = _defaults.viewers[viewerName];
+                    var customViewer = options.viewers[viewerName];
 
-                let defaultViewer = _defaults.viewers[viewerName];
-                var customViewer = options.viewers[viewerName];
+                    customViewer.id = customViewer.id || defaultViewer.id;
+                    customViewer.class = customViewer.class || defaultViewer.class;
+                    customViewer.render = customViewer.render || defaultViewer.render;
 
-                customViewer.id = customViewer.id || defaultViewer.id;
-                customViewer.class = customViewer.class || defaultViewer.class;
-                customViewer.render = customViewer.render || defaultViewer.render;
-
-                viewer = customViewer;
+                    viewer = customViewer;
+                }
             }
-
             if (!_options.generateId)
                 viewer.id = '';
 
