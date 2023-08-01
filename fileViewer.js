@@ -83,7 +83,7 @@
         const defineViewer = function (contentType, fileExtension) {
 
             const viewerName = defineViewerName(contentType, fileExtension);
-
+            let defaultMessage = options.defaultMessage != undefined ? options.defaultMessage : "Unable to preview file."; 
             let viewer = _options.viewers[viewerName] || _defaults.viewers[viewerName];
             if (options != undefined) {
                 if (options.viewers && options.viewers[viewerName]) {
@@ -199,7 +199,7 @@
             id: 'default-viewer',
             class: 'default-viewer',
             render: function (file) {
-                return '<span id="' + this.id + '" class="' + this.class + '">This file format is currently not supported.</span>';
+                return '<span id="' + this.id + '" class="' + this.class + '">' + defaultMessage + '</span>';
             }
         }
     }
