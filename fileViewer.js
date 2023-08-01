@@ -83,7 +83,7 @@
         const defineViewer = function (contentType, fileExtension) {
 
             const viewerName = defineViewerName(contentType, fileExtension);
-            let defaultMessage = options.defaultMessage != undefined ? options.defaultMessage : "Unable to preview file."; 
+            let defaultMessage = options.defaultMessage != undefined ? options.defaultMessage : ""; 
             let viewer = _options.viewers[viewerName] || _defaults.viewers[viewerName];
             if (options != undefined) {
                 if (options.viewers && options.viewers[viewerName]) {
